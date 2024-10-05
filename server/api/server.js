@@ -5,7 +5,7 @@ const cors = require('cors');
 const multer = require('multer');
 const { v2: cloudinary } = require('cloudinary');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
-const Video = require('./models/Video'); // assuming this is your Mongoose model for videos
+const Video = require('../models/Video'); // assuming this is your Mongoose model for videos
 
 const app = express();
 app.use(cors());
@@ -13,11 +13,9 @@ app.use(express.json());
 
 
 
-const mongoURI = 'mongodb+srv://pranavpandey2309:3kjVTUdieKGr7x9w@cluster0.hdx2l.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-
+// const mongoURI = 'mongodb+srv://pranavpandey2309:3kjVTUdieKGr7x9w@cluster0.hdx2l.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoURI=process.env.MONGO_URI
 mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
 }).then(() => console.log('MongoDB connected'))
   .catch(err => console.log('MongoDB connection error:', err));
 
@@ -108,3 +106,4 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+module.exports = app;
