@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-const serverurl=process.env.SERVER_URL
+// const serverurl=process.env.SERVER_URL
 const UploadForm = () => {
     const [title, setTitle] = useState('');
     const [videoFile, setVideoFile] = useState(null);
@@ -22,7 +22,7 @@ const UploadForm = () => {
         formData.append('video', videoFile);
 
         try {
-            const res = await axios.post(`${serverurl}/upload`, formData, {
+            const res = await axios.post(`https://stream-video-gcb1.vercel.app/upload`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setMessage(res.data.message);
