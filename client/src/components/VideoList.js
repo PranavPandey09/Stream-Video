@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+const serverurl=process.env.SERVER_URL
 const VideoList = () => {
     const [videos, setVideos] = useState([]);
     const [message, setMessage] = useState('');
@@ -11,7 +11,7 @@ const VideoList = () => {
 
     const fetchVideos = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/videos');
+            const res = await axios.get(`${serverurl}/Videos`);
             setVideos(res.data);
         } catch (error) {
             console.error('Failed to fetch videos:', error);
@@ -19,7 +19,7 @@ const VideoList = () => {
     };
     const handleDelete = async (id) => {
       try {
-          const res = await axios.delete(`http://localhost:5000/videos/${id}`);
+          const res = await axios.delete(`${serverurl}/Videos/${id}`);
           setMessage(res.data.message); // Display success/failure message
   
           // If video is successfully deleted, update the list
