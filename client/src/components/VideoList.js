@@ -11,7 +11,7 @@ const VideoList = () => {
 
     const fetchVideos = async () => {
         try {
-            const res = await axios.get(`https://stream-video-gcb1.vercel.app/Videos`);
+            const res = await axios.get(`https://stream-video-rho.vercel.app/Videos`);
             setVideos(res.data);
         } catch (error) {
             console.error('Failed to fetch videos:', error);
@@ -19,7 +19,7 @@ const VideoList = () => {
     };
     const handleDelete = async (id) => {
       try {
-          const res = await axios.delete(`https://stream-video-gcb1.vercel.app/Videos/${id}`);
+          const res = await axios.delete(`https://stream-video-rho.vercel.app/Videos/${id}`);
           setMessage(res.data.message); // Display success/failure message
   
           // If video is successfully deleted, update the list
