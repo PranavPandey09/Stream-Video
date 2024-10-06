@@ -22,7 +22,7 @@ const UploadForm = () => {
         formData.append('video', videoFile);
 
         try {
-            const res = await axios.post(`https://stream-video-rho.vercel.app/upload`, formData, {
+            const res = await axios.post(`https://stream-video-two.vercel.app/upload`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setMessage(res.data.message);
