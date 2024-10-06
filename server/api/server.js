@@ -11,11 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('/upload', (req, res) => {
-    // Handle the upload request
-    res.json({ message: 'Upload successful' });
-  });
-  
+
 
 // const mongoURI = 'mongodb+srv://pranavpandey2309:3kjVTUdieKGr7x9w@cluster0.hdx2l.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const mongoURI=process.env.MONGO_URI
